@@ -186,6 +186,8 @@ algebra_double_pinyin:
     - derive/9/jq/
     - derive/\+/jw/
     - derive/#/jy/
+algebra_zrm:
+  __include: algebra_double_pinyin
 # 小鹤双拼
 algebra_flypy:
   __include: algebra_common

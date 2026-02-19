@@ -1,0 +1,49 @@
+# encoding: utf-8
+---
+recipe:
+  Rx: others/recipes/icemix
+  args:
+    - double=flypy
+  description: >-
+    Select a double pinyin dialect for icemix schema.
+      - flypy（小鹤）[default]
+      - zrm（自然码）
+      - mspy（微软）
+      - sogou（搜狗）
+      - abc（智能ABC）
+      - jiajia（拼音加加）
+      - ziguang（紫光）
+
+install_files: >-
+  cn_dicts/*.*
+  en_dicts/*.*
+  opencc/*.*
+  lua/*.*
+  lua/cold_word_drop/*.*
+  default.yaml
+  squirrel.yaml
+  weasel.yaml
+  rime_ice.schema.yaml
+  rime_ice.dict.yaml
+  t9.schema.yaml
+  icemix_common.yaml
+  icemix_${double:-flypy}.schema.yaml
+  zi.schema.yaml
+  zi.dict.yaml
+  symbols_v.yaml
+  symbols_caps_v.yaml
+  radical_pinyin.schema.yaml
+  radical_pinyin.dict.yaml
+  melt_eng.schema.yaml
+  melt_eng.dict.yaml
+  custom_phrase.txt
+
+patch_files:
+  radical_pinyin.custom.yaml:
+    - patch/+:
+        speller/algebra:
+          __include: radical_pinyin.schema.yaml:/algebra_${double:-flypy}
+  melt_eng.custom.yaml:
+    - patch/+:
+        speller/algebra:
+          __include: melt_eng.schema.yaml:/algebra_${double:-flypy}

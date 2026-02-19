@@ -92,6 +92,9 @@ algebra_double_pinyin:
   - xform/in(?=^|$|')/<n>/
   - xform/'|<|>//
 
+algebra_zrm:
+  __include: algebra_double_pinyin
+
 algebra_flypy:
   - derive/^([jqxy])u(?=^|$|')/$1v/
   - derive/'([jqxy])u(?=^|$|')/'$1v/
