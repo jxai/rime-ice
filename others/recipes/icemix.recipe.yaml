@@ -47,8 +47,9 @@ install_files: >-
 patch_files:
   radical_pinyin.custom.yaml:
     - patch/+:
+        # 拆字反查共用对应的混拼方案
         speller/algebra:
-          __include: radical_pinyin.schema.yaml:/algebra_${double:-flypy}
+          __include: icemix_${double:-flypy}.schema.yaml:speller/algebra
   melt_eng.custom.yaml:
     - patch/+:
         speller/algebra:
